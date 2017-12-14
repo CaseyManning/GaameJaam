@@ -20,8 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4012061527513540}
   - component: {fileID: 33979743271225258}
-  - component: {fileID: 65737124769088552}
   - component: {fileID: 23052968854617722}
+  - component: {fileID: 114699909223967294}
+  - component: {fileID: 50959313859978818}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -83,15 +84,37 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1516253659021804}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65737124769088552
-BoxCollider:
+--- !u!50 &50959313859978818
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1516253659021804}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &114699909223967294
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1516253659021804}
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3414ff24aca874d59ab0d180cadccc1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  Speed: 10
+  Prefab: {fileID: 1193922296904620, guid: 7e9f7c8c150f54dbcbe445fb4e0a4f3a, type: 2}
