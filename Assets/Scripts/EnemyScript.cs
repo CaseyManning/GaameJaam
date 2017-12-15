@@ -15,6 +15,18 @@ public class EnemyScript : MonoBehaviour {
 	void Update () {
 		if (CanSeeTarget()) {
 			print ("I can see the player?");
+
+			Vector3 dir = GameObject.FindGameObjectWithTag ("Player").transform.position - transform.position;
+			float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
+
+			//transform.eulerAngles = new Vector3(0, 0, angle);
+
+			print (angle - transform.eulerAngles.z);
+
+			if (Mathf.Abs (angle - transform.eulerAngles.z) < 90 || Mathf.Abs (angle - transform.eulerAngles.z) > 270) {
+				transform.eulerAngles = new Vector3(0, 0, angle);
+			}
+			//transform.eulerAngles.y = 0;
 		}
 	}
 
