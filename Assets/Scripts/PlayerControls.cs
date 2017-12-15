@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControls : MonoBehaviour {
 	public Rigidbody2D rb;
@@ -19,5 +20,9 @@ public class PlayerControls : MonoBehaviour {
 		float Horizontal = Input.GetAxis ("Horizontal");
 		float Vertical = Input.GetAxis ("Vertical");
 		rb.velocity = new Vector2 (Horizontal * Speed, Vertical * Speed);
+	}
+
+	void Update() {
+
 	}
 }
