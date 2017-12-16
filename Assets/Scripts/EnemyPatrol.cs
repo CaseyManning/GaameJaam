@@ -15,7 +15,7 @@ public class EnemyPatrol : Enemy {
 
 
 		waypoints [0] = transform.position;
-		waypoints [1] = new Vector3 (0, -5, 0);
+		waypoints [1] = new Vector3 (13.5f, 11.5f, 0f);
 	}
 	
 	// Update is called once per frame
