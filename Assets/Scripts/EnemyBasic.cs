@@ -16,7 +16,7 @@ public class EnemyBasic : Enemy {
 
 
 		if (state == "attacking") {
-			moveTowards(GameObject.FindGameObjectWithTag ("Player").transform.position);
+			moveTowards(GameObject.FindGameObjectWithTag ("Player").transform.position, speed);
 		}
 	}
 }

@@ -8,11 +8,14 @@ public class EnemyPatrol : Enemy {
 	Vector3[] waypoints = new Vector3[2];
 
 	int currentWaypoint = 1; //the index in waypoints that the unit is currently moving to
+	int patrolSpeed = 4;
 
 	// Use this for initialization
 	void Start () {
+
+
 		waypoints [0] = transform.position;
-		waypoints [1] = new Vector3 (10, 10, 0);
+		waypoints [1] = new Vector3 (0, -5, 0);
 	}
 	
 	// Update is called once per frame
@@ -20,16 +23,19 @@ public class EnemyPatrol : Enemy {
 		if (state == "idle") {
 			goToNextWaypoint();
 		}
+		if (state == "attacking") {
+			moveTowards(GameObject.FindGameObjectWithTag ("Player").transform.position, speed);
+		}
 	}
 
 	void goToNextWaypoint() {
 		print (currentWaypoint);
-		if(transform.position == waypoints[1]) {
+		if(Vector3.Distance(transform.position, waypoints[currentWaypoint]) < 0.1) {
 			currentWaypoint++;
 			if (currentWaypoint > waypoints.Length - 1) {
-				currentWaypoint = 1;
+				currentWaypoint = 0;
 			}
 		}
-		moveTowards(waypoints[currentWaypoint]);
+		moveTowards(waypoints[currentWaypoint], patrolSpeed);
 	}
 }

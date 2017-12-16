@@ -89,11 +89,11 @@ public class Enemy : MonoBehaviour {
 		return false;
 	}
 
-	public void moveTowards(Vector3 target) {
+	public void moveTowards(Vector3 target, int moveSpeed) {
 		Vector3 dir = target - transform.position;
 		float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
 		transform.eulerAngles = new Vector3(0, 0, angle);
 		Vector3 playerPosition = target;
-		transform.position = Vector2.MoveTowards(transform.position, playerPosition, speed * Time.deltaTime);
+		transform.position = Vector2.MoveTowards(transform.position, playerPosition, moveSpeed * Time.deltaTime);
 	}
 }
