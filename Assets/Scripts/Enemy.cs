@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnemyScript : MonoBehaviour {
+public class Enemy : MonoBehaviour {
 
-	float attackRange = 8f;
+	public float attackRange = 8f;
 
-	int visionAngle = 90; //can see 90 to each side of the direction it is facing
+	public int visionAngle = 90; //can see 90 to each side of the direction it is facing
 
-	string state = "idle";
+	public string state = "idle";
 
-	int speed = 10;
+	public int speed = 10;
 
 	// Use this for initialization
-	void Start () {
+	public void Start () {
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public void Update () {
 
 		if(Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 0.2) {
 			SceneManager.LoadScene("GameOver");
@@ -29,14 +29,6 @@ public class EnemyScript : MonoBehaviour {
 			print ("I can see the player?");
 		}
 
-		if (state == "attacking") {
-			Vector3 dir = GameObject.FindGameObjectWithTag ("Player").transform.position - transform.position;
-			float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
-			transform.eulerAngles = new Vector3(0, 0, angle);
-			Vector3 playerPosition = GameObject.FindGameObjectWithTag ("Player").transform.position;
-			transform.position = Vector2.MoveTowards(transform.position, playerPosition, speed * Time.deltaTime);
-
-		}
 	}
 
 //	bool CanSeePlayer() {
@@ -58,7 +50,7 @@ public class EnemyScript : MonoBehaviour {
 //		return false;
 //	}
 
-	bool CanSeeTarget () {
+	public bool CanSeeTarget () {
 
 		Transform target = GameObject.FindGameObjectWithTag ("Player").transform;
 
@@ -97,4 +89,11 @@ public class EnemyScript : MonoBehaviour {
 		return false;
 	}
 
+	public void moveTowards(Vector3 target) {
+		Vector3 dir = target - transform.position;
+		float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
+		transform.eulerAngles = new Vector3(0, 0, angle);
+		Vector3 playerPosition = target;
+		transform.position = Vector2.MoveTowards(transform.position, playerPosition, speed * Time.deltaTime);
+	}
 }
