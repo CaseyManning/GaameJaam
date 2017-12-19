@@ -11,7 +11,7 @@ namespace AssemblyCSharp
 		{
 		}
 
-		void OnCollisionEnter (Collision col)
+		void OnCollisionEnter2D (Collision2D col)
 		{
 			if(col.gameObject.name == "Player")
 			{
