@@ -6,16 +6,24 @@ namespace AssemblyCSharp
 {
 	public class Diamond : MonoBehaviour
 	{
-		//everythings radius is 0.5 i think... so 
 		public Diamond ()
 		{
 		}
+		Material m_Material;
 
+		void Start()
+		{
+			//Fetch the Material from the Renderer of the GameObject
+			m_Material = GetComponent<Renderer>().material;
+		}
 		void OnCollisionEnter2D (Collision2D col)
 		{
 			if(col.gameObject.name == "Player")
 			{
-				Destroy(col.gameObject);
+				//m_Material.color = Color.red;
+				//Destroy(col.gameObject);
+				Destroy (this.gameObject);
+				//just a test
 			}
 		}
 	}
