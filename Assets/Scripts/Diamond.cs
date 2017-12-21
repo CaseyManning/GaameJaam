@@ -16,7 +16,7 @@ namespace AssemblyCSharp
 			//Fetch the Material from the Renderer of the GameObject
 			m_Material = GetComponent<Renderer>().material;
 		}
-		void OnCollisionEnter2D (Collision2D col)
+		/*void OnCollisionEnter2D (Collision2D col)
 		{
 			if(col.gameObject.name == "Player")
 			{
@@ -25,7 +25,7 @@ namespace AssemblyCSharp
 				Destroy (this.gameObject);
 				//just a test
 			}
-		}
+		}*/
 	}
 }
 

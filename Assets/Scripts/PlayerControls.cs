@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerControls : MonoBehaviour {
 	public Rigidbody2D rb;
 	public float Speed = 10.0f;
+	public int levelNum = 1;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
@@ -23,6 +24,18 @@ public class PlayerControls : MonoBehaviour {
 	}
 
 	void Update() {
-
+			
 	}
+
+	void OnCollisionEnter2D (Collision2D col)
+	{
+		if(col.gameObject.name == "Diamond")
+		{
+			levelNum++;
+			Destroy (col.gameObject);
+			//if (levelNum == 2 && SceneManager.GetActiveScene().name=="GameScene") {
+				SceneManager.LoadScene ("Level2");
+			//}
+		}
+	}	
 }
