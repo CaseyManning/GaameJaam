@@ -32,7 +32,7 @@ public class PlayerControls : MonoBehaviour {
 		if(col.gameObject.name == "Diamond")
 		{
 			levelNum++;
-			Destroy (col.gameObject);
+//			Destroy (col.gameObject); <-- this doesn't matter if we are switching the level
 			//if (levelNum == 2 && SceneManager.GetActiveScene().name=="GameScene") {
 				SceneManager.LoadScene ("Level2");
 			//}
