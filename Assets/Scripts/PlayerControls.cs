@@ -33,9 +33,9 @@ public class PlayerControls : MonoBehaviour {
 		{
 			levelNum++;
 			Destroy (col.gameObject);
-			//if (levelNum == 2 && SceneManager.GetActiveScene().name=="GameScene") {
+			if (levelNum == 2 && SceneManager.GetActiveScene().name=="GameScene") {
 				SceneManager.LoadScene ("Level2");
-			//}
+			}
 		}
 	}	
 }
