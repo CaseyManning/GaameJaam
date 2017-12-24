@@ -32,7 +32,6 @@ public class PlayerControls : MonoBehaviour {
 		if(col.gameObject.name == "Diamond")
 		{
 			levelNum++;
-			Destroy (col.gameObject);
 			if (levelNum == 2 && SceneManager.GetActiveScene().name=="GameScene") {
 				SceneManager.LoadScene ("Level2");
 			}
