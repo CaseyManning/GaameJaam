@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyPatrol : Enemy {
 
 
-	Vector3[] waypoints = new Vector3[2];
+	public Vector3[] waypoints = new Vector3[2];
 
 	int currentWaypoint = 1; //the index in waypoints that the unit is currently moving to
 	int patrolSpeed = 4;
@@ -15,7 +15,7 @@ public class EnemyPatrol : Enemy {
 
 
 		waypoints [0] = transform.position;
-		waypoints [1] = new Vector3 (13.5f, 11.5f, 0f);
+		//waypoints [1] = new Vector3 (13.5f, 11.5f, 0f);
 	}
 	
 	// Update is called once per frame
