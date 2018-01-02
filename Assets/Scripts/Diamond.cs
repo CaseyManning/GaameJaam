@@ -26,6 +26,10 @@ namespace AssemblyCSharp
 				//just a test
 			}
 		}*/
+
+		void Update() {
+			transform.Rotate (0, 0, 1);
+		}
 	}
 }
 
