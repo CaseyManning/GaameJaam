@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-enum EnemyState {
+public enum EnemyState {
 	idle,
 	attacking,
 	alerting,
@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour {
 
 	public EnemyState state = EnemyState.idle;
 
-	public int speed = 10;
+	public int speed = 50;
 
 	
 	// Update is called once per frame
