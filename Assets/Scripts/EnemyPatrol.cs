@@ -12,15 +12,15 @@ public class EnemyPatrol : Enemy {
 
 	// Use this for initialization
 	void Start () {
-		waypoints [0] = transform.position;
+		waypoints[0] = transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (state == "idle") {
+		if (state == EnemyState.idle) {
 			goToNextWaypoint();
 		}
-		if (state == "attacking") {
+		if (state == EnemyState.attacking) {
 			moveTowards(GameObject.FindGameObjectWithTag ("Player").transform.position, speed);
 		}
 	}

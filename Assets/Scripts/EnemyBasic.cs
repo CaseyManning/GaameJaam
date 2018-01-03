@@ -6,7 +6,6 @@ public class EnemyBasic : Enemy {
 
 	// Use this for initialization
 	void Start () {
-		base.Start ();
 		visionAngle = 40;
 	}
 	
@@ -14,15 +13,15 @@ public class EnemyBasic : Enemy {
 	void Update () {
 		base.Update ();
 
-		if (state == "alerting") {
+		if (state == EnemyState.alerting) {
 			moveTowards (GameObject.Find ("Alert").transform.position, speed);
-		} else if (state == "attacking") {
+		} else if (state == EnemyState.attacking) {
 			moveTowards(GameObject.FindGameObjectWithTag ("Player").transform.position, speed);
 		}
 
-		if (Vector3.Distance(transform.position, GameObject.Find ("Alert").transform.position) < 3.5f && state == "alerting") {
+		if (Vector3.Distance(transform.position, GameObject.Find ("Alert").transform.position) < 3.5f && state == EnemyState.alerting) {
 			Alert.alerted = true;
-			state = "idle";
+			state = EnemyState.idle;
 			print ("Alert: " + Alert.alerted);
 		}
 //		print(Vector3.Distance(transform.position, GameObject.Find ("Alert").transform.position));

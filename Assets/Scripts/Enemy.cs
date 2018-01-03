@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+enum EnemyState {
+	idle,
+	attacking,
+	alerting,
+	searching
+}
+
 public class Enemy : MonoBehaviour {
 
 	public float attackRange = 8f;
 
 	public int visionAngle = 90; //can see 90 to each side of the direction it is facing
 
-	public string state = "idle";
+	public EnemyState state = EnemyState.idle;
 
 	public int speed = 10;
 
-	// Use this for initialization
-	public void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	public void Update () {
@@ -76,16 +79,16 @@ public class Enemy : MonoBehaviour {
 
 				if (Mathf.Abs (angle - transform.eulerAngles.z) < visionAngle || Mathf.Abs (angle - transform.eulerAngles.z) > 360 - visionAngle) {
 					print("Target Acquired");
-					state = "attacking";
+					state = EnemyState.attacking;
 					if (this.tag == "Alerter" && Alert.alerted == false) {
-						state = "alerting";
+						state = EnemyState.alerting;
 						print ("alerted");
 					}
 				}
 			} else {
-				if (state == "attacking") {
+				if (state == EnemyState.attacking) {
 					print("Lost line of sight");
-					state = "idle";
+					state = EnemyState.idle;
 				}
 			}
 			return hit.transform.position == target.position;
