@@ -14,9 +14,17 @@ public class EnemyBasic : Enemy {
 	void Update () {
 		base.Update ();
 
-
-		if (state == "attacking") {
+		if (state == "alerting") {
+			moveTowards (GameObject.Find ("Alert").transform.position, speed);
+		} else if (state == "attacking") {
 			moveTowards(GameObject.FindGameObjectWithTag ("Player").transform.position, speed);
 		}
+
+		if (Vector3.Distance(transform.position, GameObject.Find ("Alert").transform.position) < 3.5f && state == "alerting") {
+			Alert.alerted = true;
+			state = "idle";
+			print ("Alert: " + Alert.alerted);
+		}
+//		print(Vector3.Distance(transform.position, GameObject.Find ("Alert").transform.position));
 	}
 }

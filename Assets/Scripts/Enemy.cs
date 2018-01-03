@@ -21,14 +21,14 @@ public class Enemy : MonoBehaviour {
 	// Update is called once per frame
 	public void Update () {
 
-		if(Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 0.2) {
+		if(Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 0.2f) {
 			SceneManager.LoadScene("GameOver");
 		}
 
 		if (CanSeeTarget()) {
 			print ("I can see the player?");
 		}
-
+			
 	}
 
 //	bool CanSeePlayer() {
@@ -77,6 +77,10 @@ public class Enemy : MonoBehaviour {
 				if (Mathf.Abs (angle - transform.eulerAngles.z) < visionAngle || Mathf.Abs (angle - transform.eulerAngles.z) > 360 - visionAngle) {
 					print("Target Acquired");
 					state = "attacking";
+					if (this.tag == "Alerter" && Alert.alerted == false) {
+						state = "alerting";
+						print ("alerted");
+					}
 				}
 			} else {
 				if (state == "attacking") {

@@ -12,15 +12,11 @@ public class EnemyPatrol : Enemy {
 
 	// Use this for initialization
 	void Start () {
-		base.Start ();
-
 		waypoints [0] = transform.position;
-		//waypoints [1] = new Vector3 (13.5f, 11.5f, 0f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		base.Update ();
 		if (state == "idle") {
 			goToNextWaypoint();
 		}
